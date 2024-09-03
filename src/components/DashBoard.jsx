@@ -4,11 +4,11 @@ import Card from "./Card";
 import DropDown from "./DropDown";
 
 const DashBoard = () => {
-  const [username, setUsername] = useState(undefined);
+  const [userName, setUserName] = useState(undefined);
   const [page, setPage] = useState(2);
 
   const { data: homes, isFetching: isHomeLoading } = useFetchAllHomes(
-    username,
+    userName,
     page
   );
 
@@ -21,7 +21,7 @@ const DashBoard = () => {
   return (
     <div className="maxW-100% p-2">
       <div className="flex justify-end">
-        <DropDown setUsername={setUsername} />
+        <DropDown setUserName={setUserName} userName={userName} />
       </div>
       {!homes || homes?.length === 0 ? (
         <div>no data to show </div>
